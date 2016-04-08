@@ -22,7 +22,7 @@ function factor(input, op, fn) {
 export default (input) => {
   const plus = factor(input, '+', (a, b) => a + b);
   const sub = factor(plus, '-', (a, b) => a - b);
-  const division = factor(sub, '/', (a, b) => a / b);
+  const division = factor(sub, '/', (a, b) => a / (b === 0 ? 1 : b));
   const multi = factor(division, '*', (a, b) => a * b);
   return multi;
 };

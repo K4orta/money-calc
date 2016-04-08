@@ -6,7 +6,7 @@ class Display extends React.Component {
     return (
       <div className="calc-display">
         <div className="calc-display__raw">{this.props.input}</div>
-        <div className="calc-display__processed">{calc(this.props.input)}</div>
+        <div className="calc-display__processed">{Number(calc(this.props.input)).toFixed(2)}</div>
       </div>
     );
   }
