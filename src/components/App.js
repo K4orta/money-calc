@@ -1,5 +1,6 @@
 import React from 'react';
 import Keypad from './keypad/index';
+import Display from './display/index';
 
 export default class ClacApp extends React.Component {
   constructor() {
@@ -24,7 +25,15 @@ export default class ClacApp extends React.Component {
       this._keyPress('-'),
       this._keyPress('*'),
       this._keyPress('/'),
-      this._keyPress('=')
+      this._keyPress('='),
+      {
+        label: 'del',
+        action: () => {
+          this.setState({
+            input: this.state.input.slice(0, this.state.input.length - 1)
+          });
+        }
+      }
     ];
   }
   _keyPress(str) {
@@ -38,7 +47,11 @@ export default class ClacApp extends React.Component {
     };
   }
   render() {
-    console.log(this.state);
-    return (<Keypad buttons={this.keys} />);
+    return (
+      <div className="calc-container">
+        <Display input={this.state.input} />
+        <Keypad buttons={this.keys} />
+      </div>
+    );
   }
 }

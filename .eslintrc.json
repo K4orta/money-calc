@@ -4,6 +4,13 @@
       "comma-dangle": [2, "never"],
       "react/prefer-stateless-function": [0]
     },
+    "env": {
+      "browser": true,
+      "mocha": true
+    },
+    "globals": {
+      "expect": true
+    },
     "plugins": [
         "react"
     ]
