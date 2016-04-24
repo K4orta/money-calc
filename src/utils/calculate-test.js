@@ -26,7 +26,11 @@ describe('the calculate function', () => {
   });
 
   it('can divide numbers', () => {
-    expect(calc('2/2')).to.equal('1');
+    expect(calc('2÷2')).to.equal('1');
+  });
+
+  it('can multiply numbers', () => {
+    expect(calc('2x2')).to.equal('4');
   });
 
   it('handles negative numbers', () => {

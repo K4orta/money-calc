@@ -12,7 +12,7 @@ export default class ClacApp extends React.Component {
     this.state = {
       input: ''
     };
-    this.keys = [
+    this.keypadKeys = [
       this._keyPress('1'),
       this._keyPress('2'),
       this._keyPress('3'),
@@ -22,20 +22,8 @@ export default class ClacApp extends React.Component {
       this._keyPress('7'),
       this._keyPress('8'),
       this._keyPress('9'),
-      this._keyPress('0'),
       this._keyPress('.'),
-      this._keyPress('+'),
-      this._keyPress('-'),
-      this._keyPress('*'),
-      this._keyPress('/'),
-      {
-        label: '=',
-        action: () => {
-          this.setState({
-            input: `$${Number(calculate(this.state.input)).toFixed(2)}`
-          });
-        }
-      },
+      this._keyPress('0'),
       {
         label: '$',
         action: () => {
@@ -43,15 +31,31 @@ export default class ClacApp extends React.Component {
             input: `${this.state.input}$`
           });
         }
-      },
+      }
+    ];
+
+    this.computeKey = {
+      label: '=',
+      action: () => {
+        this.setState({
+          input: `$${Number(calculate(this.state.input)).toFixed(2)}`
+        });
+      }
+    };
+
+    this.functionKeys = [
       {
-        label: 'del',
+        label: 'DEL',
         action: () => {
           this.setState({
             input: this.state.input.slice(0, this.state.input.length - 1)
           });
         }
-      }
+      },
+      this._keyPress('+'),
+      this._keyPress('-'),
+      this._keyPress('x'),
+      this._keyPress('÷')
     ];
   }
   _keyPress(str) {
@@ -68,7 +72,11 @@ export default class ClacApp extends React.Component {
     return (
       <div className="calc-container">
         <Display input={this.state.input || '0'} />
-        <Keypad buttons={this.keys} />
+        <Keypad
+          keypad={this.keypadKeys}
+          functionKeys={this.functionKeys}
+          computeKey={this.computeKey}
+        />
       </div>
     );
   }

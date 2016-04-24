@@ -1,0 +1,26 @@
+.keypad__numpad {
+  width: 75%;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.keypad__numpad .keypad__cell {
+  display: inline-block;
+  width: 33.33%;
+  height: 33.33%;
+  max-height: 5rem;
+}
+
+.keypad__numpad .keypad__compute .keypad__cell {
+  width: 100%;
+}
+
+.keypad__function-keys {
+  display: inline-block;
+  width: 25%;
+}
+
+.keypad__function-keys button {
+  max-height: 4.5rem;
+  vertical-align: middle;
+}

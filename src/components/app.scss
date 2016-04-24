@@ -7,3 +7,12 @@ body {
   font-size: 100%;
   font-family: 'Fira', sans-serif;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.calc-container {
+  max-width: 40rem;
+  margin: auto;
+}
