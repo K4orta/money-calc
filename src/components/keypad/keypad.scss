@@ -8,11 +8,11 @@
   display: inline-block;
   width: 33.33%;
   height: 33.33%;
-  max-height: 5rem;
+  max-height: 6rem;
 }
 
 .keypad__numpad .keypad__compute .keypad__cell {
-  width: 100%;
+  width: 66.66%;
 }
 
 .keypad__function-keys {
@@ -21,6 +21,10 @@
 }
 
 .keypad__function-keys button {
-  max-height: 4.5rem;
+  max-height: 5.5rem;
   vertical-align: middle;
+}
+
+.keypad__compute .keypad__cell {
+  float: left;
 }

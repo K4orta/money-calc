@@ -43,19 +43,28 @@ export default class ClacApp extends React.Component {
       }
     };
 
+    this.clearKey = {
+      label: 'DEL',
+      action: () => {
+        this.setState({
+          input: this.state.input.slice(0, this.state.input.length - 1)
+        });
+      }
+    };
+
     this.functionKeys = [
-      {
-        label: 'DEL',
-        action: () => {
-          this.setState({
-            input: this.state.input.slice(0, this.state.input.length - 1)
-          });
-        }
-      },
       this._keyPress('+'),
       this._keyPress('-'),
       this._keyPress('x'),
-      this._keyPress('÷')
+      this._keyPress('÷'),
+      {
+        label: 'C',
+        action: () => {
+          this.setState({
+            input: ''
+          });
+        }
+      }
     ];
   }
   _keyPress(str) {
@@ -76,6 +85,7 @@ export default class ClacApp extends React.Component {
           keypad={this.keypadKeys}
           functionKeys={this.functionKeys}
           computeKey={this.computeKey}
+          clearKey={this.clearKey}
         />
       </div>
     );

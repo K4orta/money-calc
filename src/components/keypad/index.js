@@ -17,13 +17,20 @@ class Keypad extends React.Component {
       this.props.computeKey.label,
       this.props.computeKey.action
     );
+    const clearKey = this._createButton(
+      this.props.clearKey.label,
+      this.props.clearKey.action
+    );
     const buttons = this.props.keypad.map(k => this._createButton(k.label, k.action));
     const functionKeys = this.props.functionKeys.map(k => this._createButton(k.label, k.action));
     return (
       <div className="keypad">
         <div className="keypad__numpad">
-          <div className="keypad__compute">{computeKey}</div>
           {buttons}
+          <div className="keypad__compute-row">
+            <div className="keypad__compute">{computeKey}</div>
+            <div className="keypad__clear">{clearKey}</div>
+          </div>
         </div>
         <div className="keypad__function-keys">
           {functionKeys}
@@ -36,7 +43,8 @@ class Keypad extends React.Component {
 Keypad.propTypes = {
   keypad: React.PropTypes.array,
   functionKeys: React.PropTypes.array,
-  computeKey: React.PropTypes.object
+  computeKey: React.PropTypes.object,
+  clearKey: React.PropTypes.object
 };
 
 export default Keypad;
