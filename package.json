@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require src/test-init.js src/**/*-test.js",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "gh-pages": "node gh-pages"
   },
   "author": "",
   "license": "ISC",
